@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sosuke Takebe</title>
+    <style>
+        :root {
+            --font-en: "CenturyStd-Light", "Century Std", serif;
+            --font-ja: "RA花胡蝶 Std M", "RA Hanakocho Std", "Hiragino Mincho ProN", serif;
+        }
+
+        body, html {
+            background-color: #ffffff;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-en), var(--font-ja);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 左上：名前 */
+        header {
+            position: fixed;
+            top: 40px;
+            left: 40px;
+            z-index: 100;
+        }
+        
+        /* 右上：メールアドレス */
+        .contact-top {
+            position: fixed;
+            top: 40px;
+            right: 40px;
+            z-index: 100;
+            font-family: var(--font-en);
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+        }
+        .contact-top a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        h1 { 
+            font-size: 0.75rem; 
+            font-weight: normal; 
+            letter-spacing: 0.4em; 
+            text-transform: uppercase;
+            margin: 0;
+            font-family: var(--font-en);
+        }
+
+        main {
+            padding:30vh 0 20vh 0; /* 上、右、下、左 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .work-section {
+            width: 100%;
+            margin-bottom: 40vh; /* 隙間を広めに確保 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: crosshair;
+        }
+
+        .image-wrap {
+            width: 45%;
+            max-width: 700px;
+            position: relative;
+        }
+
+        .image-wrap img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: opacity 0.5s ease;
+        }
+
+        /* クリック時に現れるパネル */
+        .info-panel {
+            margin-top: 40px;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+            text-align: left;
+        }
+
+        .work-section.active .info-panel {
+            opacity: 1;
+        }
+
+        .title {
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            font-family: var(--font-en);
+            margin-bottom: 15px;
+        }
+
+        .description {
+            font-size: 0.8rem;
+            color: #333;
+            line-height: 2.4;
+            max-width: 380px;
+            font-family: var(--font-ja);
+            margin-bottom: 25px;
+        }
+
+        /* 作品ごとのリンク（SoundCloud, Bandcamp等） */
+        .work-links {
+            display: flex;
+            gap: 25px;
+            font-family: var(--font-en);
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+        }
+        .work-links a {
+            color: #000;
+            text-decoration: none;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 2px;
+            transition: border-color 0.3s;
+        }
+        .work-links a:hover {
+            border-color: #000;
+        }
+
+        /* フッターは不要になったため、最小限の余白のみ */
+        footer {
+            padding-bottom: 10vh;
+        }
+
+        @media (max-width: 768px) {
+            .image-wrap { width: 85%; }
+            header, .contact-top { top: 20px; }
+            header { left: 20px; }
+            .contact-top { right: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Sosuke Takebe</h1>
+</header>
+
+<div class="contact-top">
+    <a href="mailto:ssk.8.info@gmail.com">EMAIL</a>
+</div>
+
+<main>
+    <!-- 写真作品の例 -->
+    <section class="work-section" onclick="this.classList.toggle('active')">
+        <div class="image-wrap">
+            <img src="r0000945.jpg" alt="r0000945">
+            <div class="info-panel">
+                <div class="title">R0000945 / 20240301@taiwan</div>
+                <div class="description">
+        </div>
+    </section>
+
+</main>
+
+<footer></footer>
+
+</body>
+</html>
