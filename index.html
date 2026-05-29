@@ -27,8 +27,8 @@
             z-index: 100;
         }
         
-        /* 右上：メールアドレス */
-        .contact-top {
+        /* 右上：コンタクトエリア */
+        .contact-container {
             position: fixed;
             top: 40px;
             right: 40px;
@@ -36,10 +36,45 @@
             font-family: var(--font-en);
             font-size: 0.7rem;
             letter-spacing: 0.2em;
+            text-align: right;
         }
-        .contact-top a {
+
+        /* CONTACT の文字 */
+        .contact-trigger {
+            cursor: pointer;
+            text-transform: uppercase;
+            user-select: none;
+        }
+
+        /* クリックで現れるメニュー */
+        .contact-menu {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        /* activeクラスがついたら表示 */
+        .contact-container.active .contact-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .contact-menu a {
             color: #000;
             text-decoration: none;
+            font-size: 0.65rem;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 2px;
+            transition: border-color 0.3s;
+            display: inline-block;
+        }
+        
+        .contact-menu a:hover {
+            border-color: #000;
         }
 
         h1 { 
@@ -144,13 +179,16 @@
 </head>
 <body>
 
-<header>
-    <h1>Sosuke Takebe</h1>
-</header>
-
-<div class="contact-top">
-    <a href="mailto:ssk.8.info@gmail.com">EMAIL</a>
+<!-- 右上：コンタクトメニュー（クリックで展開） -->
+<div class="contact-container" onclick="this.classList.toggle('active')">
+    <div class="contact-trigger">CONTACT</div>
+    <div class="contact-menu">
+        <a href="mailto:ssk.8.info@gmail.com">EMAIL</a>
+        <a href="https://instagram.com/あなたのユーザー名" target="_blank">INSTAGRAM</a>
+        <a href="https://youtube.com/あなたのチャンネル" target="_blank">YOUTUBE</a>
+    </div>
 </div>
+
 
 <main>
     <!-- 写真作品の例 -->
